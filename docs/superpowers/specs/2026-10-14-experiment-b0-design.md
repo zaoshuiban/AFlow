@@ -1,0 +1,17 @@
+# Experiment B0 execution design
+
+User supplied a complete executable protocol and authorized all six phases. This document resolves routine choices without changing the research questions. No Experiment A artifact will be overwritten.
+
+One discovery case: Experiment A Reflection e4d3bffc7350d308b0da. Separate observed suffix truncation defect, local intervention evidence and general Agent capability hypothesis. Research-assistant proposed hypothesis and diagnostic construction are explicitly assisted, not autonomous discovery.
+
+Use existing CCC semantics, oracle, independent brute enumeration, restricted Python, Transport and final-submission controller. Ten paired mechanism-development cases contrast length-3 patterns with length-2 patterns, keeping other fields fixed. Include unreachable and shorter-than-pattern controls, overlap and multiple pattern conditions. Replay historical solve extracted without its top-level examples; compare one-line history-retention intervention. Run Reflection on all 20 new diagnostic tasks. Continue synthesis if program defect has reproducible evidence; Agent-level generality remains a separate empirical question and a possible negative result.
+
+Before any synthesis, seal 12 transfer + 12 control + 20 natural random tasks. New 16 operator development cases, disjoint from diagnostics and hidden tests. All small n<=7 crosschecked by brute force; larger tasks use independent existing exact DP. Do not select by Agent performance. Never expose hidden inputs, answers or oracle source in generation contexts.
+
+Compare full-solver F and M under same public input/output contract. One initial candidate, at most one automatic repair each, same validator and feedback. M additionally receives evidence-based structural requirements, not an algorithm implementation. F may infer mechanism from raw failure. Same model, temperature0, output cap8192. F/M total offline API reservation ceiling3 CNY each; charge entire shared diagnostic API to M as conservative overhead, leaving remaining M ceiling for generation. Also disclose local elapsed time and research-assistant intervention; neither is free nor included in external API invoice. No second seed or optional S in this pilot.
+
+Evaluate all frozen candidates, including imperfect ones, after saving hashes. Three arms Reflection/F/M on all44 unseen tasks, forced first operator action for F/M then actual Agent submit; Python fallback, four calls,8192 output tokens,10s tools,180s actual wall,concurrency3. Offline applicability means target history mechanism relevance, separate from full-solver domain validity; label independently by structural long-pattern requirement, never correctness. No dynamic routing.
+
+Global phase ceilings: diagnostics2.5 CNY/80requests, F3/2generation requests, M(3-diagnostic reserved usage)/2generation requests, each evaluation arm(8/3 CNY)/176requests. Total ceiling<=14 CNY,610requests; missing usage retains reservation. No automatic retries; no candidate switching after hidden results. API estimates use inherited conservative tariff, actual bill separately user supplied.
+
+Outputs: all requested six phase documents and12-section final report; raw requests, full traces, split seals, assisted intervention ledger, exact program replays, generation initial/final quality, all denominators, paired wins/losses, costs and a research-direction decision. Interpret as one-mechanism, one-generation-seed exploration, not confirmation.

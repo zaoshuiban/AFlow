@@ -1,0 +1,4 @@
+# Optional data preparation dependencies, used with requirements.txt.
+# No Hugging Face account/token or datasets execution scripts are required.
+pyarrow==25.0.1
+requests==2.34.2

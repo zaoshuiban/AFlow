@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AFlow Evolution Observatory</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">AFLOW EVOLUTION OBSERVATORY · MATH / 119</p>
+      <h1>更多算子，<span>不一定更聪明</span></h1>
+      <p class="dek">沿着每一轮工作流，看扩展、验证与自动进化如何改变准确率——以及失败如何暴露下一处瓶颈。</p>
+    </div>
+    <div class="hero-mark" aria-hidden="true">
+      <span>7</span><small>组实验</small>
+      <i></i>
+      <span>3</span><small>个联动视图</small>
+    </div>
+  </header>
+
+  <main>
+    <section class="story-strip" aria-label="核心叙事">
+      <div><b>01</b><span>扩展</span><p>搜索空间变大，也更容易生成失败工作流。</p></div>
+      <div><b>02</b><span>验证</span><p>AST 与冒烟测试让搜索重新可用。</p></div>
+      <div><b>03</b><span>进化</span><p>算子生成方向改善，但采用与稳定性成为新瓶颈。</p></div>
+    </section>
+
+    <section class="control-panel card">
+      <div>
+        <p class="section-kicker">实验轨迹</p>
+        <h2>选择要比较的版本</h2>
+      </div>
+      <div id="experiment-toggles" class="toggles"></div>
+      <button id="reset-filter" class="ghost-button" type="button">重置筛选</button>
+    </section>
+
+    <section class="kpi-grid" aria-label="关键指标">
+      <article class="kpi card"><span>当前选择</span><strong id="kpi-selection">—</strong><small id="kpi-stage">—</small></article>
+      <article class="kpi card"><span>当前准确率</span><strong id="kpi-score">—</strong><small id="kpi-score-note">—</small></article>
+      <article class="kpi card"><span>实验内最佳</span><strong id="kpi-best">—</strong><small id="kpi-best-note">—</small></article>
+      <article class="kpi card"><span>逐题范围</span><strong id="kpi-scope">—</strong><small id="kpi-scope-note">—</small></article>
+    </section>
+
+    <section class="card chart-card">
+      <div class="card-head">
+        <div>
+          <p class="section-kicker">视图 1 · 演化轨迹</p>
+          <h2>每一轮是进步，还是一次代价昂贵的试错？</h2>
+        </div>
+        <div class="legend-note"><i class="dot evaluated"></i>完成评测 <i class="dot rejected"></i>拒绝/零分 <i class="dot evolved"></i>进化事件</div>
+      </div>
+      <div id="filter-readout" class="filter-readout">全部题目</div>
+      <div id="line-chart" class="chart" aria-label="实验逐轮准确率折线图"></div>
+      <p class="chart-help">点击任意节点选择实验和轮次；点击下方热力格后，曲线会按题型重新计算。</p>
+    </section>
+
+    <section class="two-column">
+      <article class="card matrix-card">
+        <div class="card-head compact">
+          <div>
+            <p class="section-kicker">视图 2 · 能力切片</p>
+            <h2>题型 × 轮次表现</h2>
+          </div>
+          <button id="clear-slice" class="text-button" type="button">清除切片</button>
+        </div>
+        <p id="matrix-caption" class="muted">—</p>
+        <div id="heatmap" class="heatmap"></div>
+        <div class="heat-legend"><span>低</span><i></i><span>高</span><em>全部119题均为 Level 5</em></div>
+      </article>
+
+      <article class="card workflow-card">
+        <div class="card-head compact">
+          <div>
+            <p class="section-kicker">视图 3 · 工作流剖面</p>
+            <h2>这一轮调用了什么？</h2>
+          </div>
+          <span id="workflow-status" class="status-pill">—</span>
+        </div>
+        <p id="workflow-caption" class="muted">—</p>
+        <div id="workflow" class="workflow"></div>
+        <div id="event-list" class="event-list"></div>
+        <p class="chart-help">点击算子，可在折线图中高亮包含它的轮次。</p>
+      </article>
+    </section>
+
+    <section class="card case-card">
+      <div class="card-head">
+        <div>
+          <p class="section-kicker">逐题证据</p>
+          <h2>总分背后，哪些题真正改变了？</h2>
+        </div>
+        <div id="case-summary" class="case-summary">—</div>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>题号</th><th>题型</th><th>难度</th><th>结果</th><th>题目</th></tr></thead>
+          <tbody id="case-table"></tbody>
+        </table>
+      </div>
+      <p class="chart-help">优先展示错误题；点击任意一题查看预测、标准解以及它在该实验中的跨轮轨迹。</p>
+    </section>
+
+    <section class="takeaway card">
+      <p class="section-kicker">READ THE PATTERN</p>
+      <h2>系统的瓶颈会移动</h2>
+      <div class="takeaway-grid">
+        <p><b>从“能否运行”</b><span>扩展算子后，代码生成失败制造了大量零分轮。</span></p>
+        <p><b>到“能否生成”</b><span>安全网稳定了搜索，Prompt 又改变了新算子的方向。</span></p>
+        <p><b>再到“能否被采用”</b><span>算子安装成功不等于工作流会使用，也不等于收益稳定。</span></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>AFlow 可视化课程作业</span>
+    <span>数据口径：results.json + 逐轮 CSV + graph.py + analysis.json</span>
+  </footer>
+
+  <dialog id="problem-dialog">
+    <button id="dialog-close" class="dialog-close" aria-label="关闭">×</button>
+    <p id="dialog-meta" class="section-kicker"></p>
+    <h2 id="dialog-title"></h2>
+    <div class="dialog-grid">
+      <section><h3>模型预测</h3><pre id="dialog-prediction"></pre></section>
+      <section><h3>标准解</h3><pre id="dialog-solution"></pre></section>
+    </div>
+    <section class="trajectory"><h3>在当前实验中的跨轮结果</h3><div id="dialog-trajectory"></div></section>
+  </dialog>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

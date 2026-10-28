@@ -1,0 +1,20 @@
+.DS_Store
+config/config2.yaml
+logs
+data/datasets
+optimized
+*/__pycache__
+*.pyc
+/workspace
+*.json
+
+# Persist the revision-bound MATH operator catalog and immutable artifacts,
+# while keeping all other mutable workspace experiment outputs ignored.
+!/workspace/
+/workspace/*
+!/workspace/MATH/
+/workspace/MATH/*
+!/workspace/MATH/operator_library/
+!/workspace/MATH/operator_library/**
+/workspace/MATH/operator_library/**/__pycache__/
+/workspace/MATH/operator_library/**/*.pyc

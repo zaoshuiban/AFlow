@@ -1,0 +1,30 @@
+{
+    "Custom": {
+        "description": "Generates anything based on customized input and instruction.",
+        "interface": "custom(input: str, instruction: str) -> dict with key 'response' of type str"
+    },
+    "ScEnsemble": {
+        "description": "Uses self-consistency to select the solution that appears most frequently in the solution list, improve the selection to enhance the choice of the best solution.",
+        "interface": "sc_ensemble(solutions: List[str], problem: str) -> dict with key 'response' of type str"
+    },
+    "Programmer": {
+        "description": "Automatically writes, executes Python code, and returns the solution based on the provided problem description and analysis. The `output` only contains the final answer. If you want to see the detailed solution process, it's recommended to retrieve the `code`.",
+        "interface": "programmer(problem: str, analysis: str = 'None') -> dict with keys 'code' and 'output' of type str"
+    },
+    "AnswerExtractor": {
+        "description": "Intelligently extracts the final numerical answer from a model's reasoning output. Prioritizes \\boxed{} notation, then uses pattern matching and LLM-based extraction as fallback. Critical for ensuring the correct answer is extracted from long reasoning chains.",
+        "interface": "answer_extractor(output: str) -> dict with key 'answer' of type str"
+    },
+    "ReviewRevise": {
+        "description": "Reviews a solution for correctness and revises it if errors are found. First reviews the solution, then if issues are detected, provides a corrected solution. Useful for catching calculation mistakes in step-by-step reasoning.",
+        "interface": "review_revise(problem: str, solution: str) -> dict with key 'response' of type str"
+    },
+    "MultiPathReasoner": {
+        "description": "Generates multiple independent solutions using different reasoning strategies (step-by-step, code-based, double-check), then uses majority voting to select the most consistent answer. Combines diverse reasoning paths with self-consistency for robust answers.",
+        "interface": "multi_path_reasoner(problem: str, num_paths: int = 3) -> dict with key 'response' of type str"
+    },
+    "CodeVerifyRescue": {
+        "description": "Takes a text-based reasoning solution and uses it as analysis to generate Python code that computes the answer. If code execution succeeds, uses the code output. Serves as a 'rescue' operator when text-based reasoning might have calculation errors.",
+        "interface": "code_verify_rescue(problem: str, solution: str) -> dict with keys 'code' and 'output' of type str"
+    }
+}

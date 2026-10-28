@@ -1,0 +1,80 @@
+{
+    "9": {
+        "score": 0.9696969696969697,
+        "success": {},
+        "failure": {
+            "10": {
+                "modification": "Added a self-ask step to generate multiple analysis perspectives before code generation, and used ScEnsemble to select the best analysis. Also added a second reflection loop with more detailed error context for robustness.",
+                "score": 0.9393939393939394
+            }
+        }
+    },
+    "4": {
+        "score": 0.9090909090909091,
+        "success": {},
+        "failure": {
+            "7": {
+                "modification": "Added a second ScEnsemble after reflection to improve solution quality, and modified the reflection prompt to be more specific about error analysis.",
+                "score": 0.9090909090909091
+            },
+            "5": {
+                "modification": "Added a self-ask and verification loop with a second ScEnsemble after reflection to improve solution quality, and modified the reflection prompt to be more specific about error analysis.",
+                "score": 0.9090909090909091
+            }
+        }
+    },
+    "8": {
+        "score": 0.9393939393939394,
+        "success": {
+            "9": {
+                "modification": "Added a self-ask step to analyze the problem before generating code, and modified the reflection loop to include a second ensemble and test attempt with a fallback to the best initial solution.",
+                "score": 0.9696969696969697
+            }
+        },
+        "failure": {}
+    },
+    "5": {
+        "score": 0.9090909090909091,
+        "success": {
+            "8": {
+                "modification": "Added a self-ask step before code generation to analyze the problem, and modified the reflection prompt to be more specific about error types.",
+                "score": 0.9393939393939394
+            }
+        },
+        "failure": {}
+    },
+    "3": {
+        "score": 0.9090909090909091,
+        "success": {},
+        "failure": {
+            "6": {
+                "modification": "Added a self-ask and verification loop after the initial solution generation to improve correctness, and modified the reflection step to include the test failure details for better error analysis.",
+                "score": 0.9090909090909091
+            }
+        }
+    },
+    "2": {
+        "score": 0.9393939393939394,
+        "success": {},
+        "failure": {
+            "4": {
+                "modification": "Added a self-reflection and error analysis step after test failure, using a dedicated prompt to generate a corrected solution before returning the final answer. Also added a loop to retry up to 2 times with reflection.",
+                "score": 0.9090909090909091
+            },
+            "3": {
+                "modification": "Added a Custom operator for self-reflection and error analysis after the test fails, using a dedicated prompt to generate a corrected solution before returning the final answer.",
+                "score": 0.9090909090909091
+            }
+        }
+    },
+    "1": {
+        "score": 0.8787878787878788,
+        "success": {
+            "2": {
+                "modification": "Added a ScEnsemble operator to generate multiple solutions and select the most consistent one, improving robustness and accuracy.",
+                "score": 0.9393939393939394
+            }
+        },
+        "failure": {}
+    }
+}

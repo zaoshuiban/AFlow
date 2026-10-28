@@ -1,0 +1,16 @@
+models:
+ "<model_name>": # model: "gpt-4-turbo"  # or gpt-3.5-turbo
+   api_type: "openai"  # or azure / ollama / groq etc.
+   base_url: "<your base url>" 
+   api_key: "<your api key>"
+   temperature: 0
+ "deepseek-chat":
+    api_type: "openai"  # DeepSeek 兼容 OpenAI 接口格式，填 openai
+    base_url: "https://api.deepseek.com"  # DeepSeek 官方基础地址
+    api_key: "YOUR_API_KEY"  # 替换成你自己的密钥
+    temperature: 0  # 0 表示输出最稳定、确定性最高
+ "GLM-5.1":
+    api_type: "openai"  # DeepSeek 兼容 OpenAI 接口格式，填 openai
+    base_url: "https://api.lkeap.cloud.tencent.com/plan/v3"  # DeepSeek 官方基础地址
+    api_key: "YOUR_API_KEY"  # 替换成你自己的密钥
+    temperature: 0  # 0 表示输出最稳定、确定性最高

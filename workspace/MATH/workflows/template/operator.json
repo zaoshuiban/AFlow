@@ -1,0 +1,72 @@
+{
+    "Custom": {
+        "description": "Generates anything based on customized input and instruction.",
+        "interface": "custom(input: str, instruction: str) -> dict with key 'response' of type str"
+    },
+    "ScEnsemble": {
+        "description": "Uses self-consistency to select the solution that appears most frequently in the solution list, improve the selection to enhance the choice of the best solution.",
+        "interface": "sc_ensemble(solutions: List[str], problem: str) -> dict with key 'response' of type str"
+    },
+    "Programmer": {
+        "description": "Automatically writes, executes Python code, and returns the solution based on the provided problem description and analysis. The `output` only contains the final answer. If you want to see the detailed solution process, it's recommended to retrieve the `code`.",
+        "interface": "programmer(problem: str, analysis: str = 'None') -> dict with keys 'code' and 'output' of type str"
+    },
+    "ProblemRouter": {
+        "description": "Classifies a math problem into one of 6 categories (geometry, algebra, number_theory, combinatorics, probability, trigonometry) to enable routing to the most suitable solver. Returns dict with key 'category'.",
+        "interface": "problem_router(problem: str) -> dict with key 'category' of type str"
+    },
+    "AnswerFormatter": {
+        "description": "Extracts the final answer from a solution and reformats it with proper LaTeX notation, ensuring correct \\boxed{} wrapping. Handles percentages (\\%), units (\\text{}), degrees (^\\circ), fractions (\\frac{}{}), and square roots (\\sqrt{}). Critical for MATH where format mismatches cause 40% of failures.",
+        "interface": "answer_formatter(problem: str, solution: str) -> dict with key 'response' of type str"
+    },
+    "MultiStrategySolver": {
+        "description": "Generates solutions using three distinct strategies (algebraic reasoning, code-based computation, verification-oriented reasoning), then uses LLM-based comparison to select the most reliable one. Addresses reasoning errors by combining diverse solution approaches with redundancy.",
+        "interface": "multi_strategy_solver(problem: str) -> dict with key 'response' of type str"
+    },
+    "SymbolicVerifier": {
+        "description": "Verifies a proposed answer against the problem's constraints using symbolic reasoning. Substitutes the answer back into original conditions, checks geometric properties, and verifies logical consistency. If inconsistent, provides a corrected answer. Addresses complex problem failures where the model's reasoning direction is wrong.",
+        "interface": "symbolic_verifier(problem: str, solution: str) -> dict with key 'response' of type str"
+    },
+    "GeometricCombinatorialDecomposer": {
+        "description": "Decomposes geometry and combinatorics problems into subproblems using symmetry and invariant analysis before solving.",
+        "interface": "geometriccombinatorialdecomposer(problem: str) -> dict with key 'response' of type str",
+        "auto_evolved": true,
+        "skeleton_type": "two_stage"
+    },
+    "CombinatorialSymmetryDecomposer": {
+        "description": "Uses group-action analysis for finite placement problems whose arrangements are explicitly equivalent under rotation and reflection.",
+        "interface": "combinatorialsymmetrydecomposer(problem: str) -> dict with key 'response' of type str",
+        "auto_evolved": true,
+        "skeleton_type": "two_stage",
+        "library_status": "candidate",
+        "contextual_routing": true,
+        "operator_version": 2,
+        "artifact_sha256": "61b8236a45a4c10600428f58e5d4325ee9982b46dd80a9d8b85ecd104143a775"
+    },
+    "ContextAwareOperatorRouter": {
+        "description": "Retrieves an evidence-backed evolved operator using explicit applicability rules and hard failure boundaries; falls back to an equal-budget generic two-stage solver when no safe match exists.",
+        "interface": "context_aware_operator_router(problem: str) -> dict with response, selected_operator, used_fallback, fallback_reason, and route metadata",
+        "auto_evolved": false,
+        "routing_policy": "workspace/MATH/operator_library/operators.json"
+    },
+    "ReusableParenthesizationIntervalDPTool": {
+        "description": "Version 2 reusable exact interval-DP tool with LaTeX multiplication and natural inserting-parentheses coverage.",
+        "interface": "reusableparenthesizationintervaldptool(problem: str) -> dict with key 'response' of type str",
+        "auto_evolved": true,
+        "skeleton_type": "reusable_parameterized_tool_v2",
+        "library_status": "experimental",
+        "contextual_routing": true,
+        "operator_version": 2,
+        "artifact_sha256": "d58e431f855a1e7d5887778fe0801ab20b5a62090a7a12e9b7966a4bdc02948f"
+    },
+    "ReusableRestrictedDigitPrimeEnumerator": {
+        "description": "Reusable exact restricted-digit prime enumerator compiled from the frozen auto-generated exhaustive-enumeration design.",
+        "interface": "reusablerestricteddigitprimeenumerator(problem: str) -> dict with key 'response' of type str",
+        "auto_evolved": true,
+        "skeleton_type": "reusable_parameterized_tool_prime_v2",
+        "library_status": "experimental",
+        "contextual_routing": true,
+        "operator_version": 2,
+        "artifact_sha256": "9c69ef6b0591e624cad3e68ddf072060e098f7fb5b8d5b20b8ca9857e448ed23"
+    }
+}

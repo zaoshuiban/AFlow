@@ -1,0 +1,56 @@
+{
+    "6": {
+        "score": 0.7899159663865546,
+        "success": {},
+        "failure": {
+            "7": {
+                "modification": "Added GeometricCombinatorialDecomposer for geometry/combinatorics problems to generate a decomposed solution, and reduced Custom calls to 2 to keep vote width <= 5. Also added AnswerFormatter as a final formatting step for the ensemble result.",
+                "score": 0.773109243697479
+            }
+        }
+    },
+    "2": {
+        "score": 0.7983193277310925,
+        "success": {},
+        "failure": {
+            "6": {
+                "modification": "Added a verification step using SymbolicVerifier for geometry/trigonometry/algebra problems after MultiStrategySolver to improve answer reliability, and adjusted the ensemble to include only 2 Custom solutions to keep vote width <= 5.",
+                "score": 0.7899159663865546
+            },
+            "3": {
+                "modification": "Added AnswerFormatter as a final formatting step after ScEnsemble to ensure correct LaTeX boxed output, and added a second Custom call with a verification-oriented prompt to diversify ensemble candidates while keeping vote width <= 5.",
+                "score": 0.7478991596638656
+            }
+        }
+    },
+    "3": {
+        "score": 0.7478991596638656,
+        "success": {
+            "4": {
+                "modification": "Added GeometricCombinatorialDecomposer for geometry/combinatorics problems to diversify ensemble candidates, and replaced one Custom call with a verification-oriented Custom call to improve answer reliability while keeping vote width <= 5.",
+                "score": 0.7563025210084033
+            }
+        },
+        "failure": {}
+    },
+    "1": {
+        "score": 0.7815126050420168,
+        "success": {
+            "2": {
+                "modification": "Added ProblemRouter for routing, MultiStrategySolver for geometry/trigonometry/algebra, and ScEnsemble for voting with max 5 candidates. Removed unused operators and simplified to a single verification step.",
+                "score": 0.7983193277310925
+            }
+        },
+        "failure": {}
+    },
+    "4": {
+        "score": 0.7563025210084033,
+        "success": {
+            "5": {
+                "modification": "Added SymbolicVerifier as a final verification step for geometry/trigonometry/algebra problems, and replaced one Custom call with a verification-oriented Custom call to improve answer correctness while keeping total ScEnsemble width ≤5.",
+                "score": 0.7647058823529411
+            }
+        },
+        "failure": {}
+    }
+}

@@ -1,0 +1,72 @@
+{
+    "8": {
+        "score": 0.9810606060606061,
+        "success": {},
+        "failure": {
+            "10": {
+                "modification": "Modified the workflow to use CodeVerifyRescue as a fallback after ReviewRevise, and added a second Custom step to enforce strict answer formatting with a clear boxed number, preventing extraction errors like \"3\\\\frac{5\" or \"168\".",
+                "score": 0.0
+            },
+            "9": {
+                "modification": "Added a CodeVerifyRescue operator after the initial solution to catch calculation errors, and modified the workflow to use it as a fallback when the reviewed solution seems inconsistent.",
+                "score": 0.0
+            }
+        }
+    },
+    "3": {
+        "score": 0.9810606060606061,
+        "success": {},
+        "failure": {
+            "11": {
+                "modification": "Add a ReviewRevise step after MultiPathReasoner to catch calculation errors, and modify the prompt to emphasize unit conversion and double-checking.",
+                "score": 0.9772727272727273
+            }
+        }
+    },
+    "4": {
+        "score": 0.9753787878787878,
+        "success": {},
+        "failure": {
+            "7": {
+                "modification": "Add CodeVerifyRescue operator after ReviewRevise to catch calculation errors, and modify the flow to use its output for final answer extraction.",
+                "score": 0.0
+            },
+            "8": {
+                "modification": "Added CodeVerifyRescue after ReviewRevise to catch calculation errors, and modified the flow to use its output for final answer extraction.",
+                "score": 0.0
+            }
+        }
+    },
+    "2": {
+        "score": 0.9772727272727273,
+        "success": {},
+        "failure": {
+            "6": {
+                "modification": "Added a CodeVerifyRescue operator after the initial custom reasoning to catch arithmetic errors, and modified the prompt to enforce explicit unit conversion and time calculation verification.",
+                "score": 0.0
+            },
+            "3": {
+                "modification": "Added a self-consistency ensemble step after the initial custom reasoning to improve answer reliability, and modified the prompt to enforce unit conversion and arithmetic verification more strictly.",
+                "score": 0.9621212121212122
+            },
+            "2": {
+                "modification": "Modified the graph to add a CodeVerifyRescue operator after the initial custom reasoning to catch arithmetic errors, and modified the prompt to enforce explicit unit conversion and time calculation verification.",
+                "score": 0.0
+            },
+            "5": {
+                "modification": "Added a self-consistency ensemble step (ScEnsemble) after the initial custom reasoning to improve answer reliability by selecting the most frequent answer from multiple reasoning paths, and modified the prompt to enforce unit conversion and arithmetic verification more strictly.",
+                "score": 0.9734848484848485
+            }
+        }
+    },
+    "11": {
+        "score": 0.9772727272727273,
+        "success": {},
+        "failure": {
+            "4": {
+                "modification": "Added a ReviewRevise step after MultiPathReasoner to catch calculation errors, and modified the prompt to emphasize unit conversion and arithmetic verification.",
+                "score": 0.9772727272727273
+            }
+        }
+    }
+}
